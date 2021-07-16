@@ -1,5 +1,4 @@
-const responseFunction = (checkBit,msg,data)=>{
-    return {success :checkBit,message:msg,data:data};
-    
+const responseFunction = (check,msg,data)=>{
+    return {success:check,message:msg,data};
 }
 module.exports = responseFunction;

@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
-const api = require('./routes/api')
+const morgan = require('morgan');
 const {port} = require('./config/config');
-
-app.use(express.urlencoded({extended: false}) )
+const connectDB = require('./databases/mongo/operation/database')
+connectDB();
+const routes = require("./routers/productRoutes");
+const userRoutes = require('./routers/userRoutes')
+const orderRoutes = require('./routers/orderRoutes')
 app.use(express.json())
-var morgan = require('morgan')
-app.use(morgan('combined'))
-
-app.use('/api',api)
+app.use(morgan('combined'));
+app.use('/api', routes);
+app.use('/userapi',userRoutes);
+app.use('/order',orderRoutes)
 app.listen(port,()=>{
-    console.log(`listening on port ${port}`);
+    console.log(`App is listening on port ${port}`);
 })
