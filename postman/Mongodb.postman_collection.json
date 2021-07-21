@@ -326,6 +326,105 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:10000/auth/login?mobileNumber=7233339992&password=reshmaparhar",
+					"host": [
+						"localhost"
+					],
+					"port": "10000",
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "mobileNumber",
+							"value": "7233339992"
+						},
+						{
+							"key": "password",
+							"value": "reshmaparhar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY3ZDcwYjdjMmI0NDVkMjJlMDI2NWQiLCJpYXQiOjE2MjY4NTgzMjl9.rE143ZB71mJ7WoA1F_T84aSoDFrMcy5iZmAUUIbFcNk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:10000/user/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "10000",
+					"path": [
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buyproduct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY3ZDcwYjdjMmI0NDVkMjJlMDI2NWQiLCJpYXQiOjE2MjY4NTgzMjl9.rE143ZB71mJ7WoA1F_T84aSoDFrMcy5iZmAUUIbFcNk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"productId\":4,\n    \"quantity\":1\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:10000/user/buy",
+					"host": [
+						"localhost"
+					],
+					"port": "10000",
+					"path": [
+						"user",
+						"buy"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

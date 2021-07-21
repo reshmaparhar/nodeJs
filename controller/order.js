@@ -4,22 +4,20 @@ const { findProductById, updateProductById } = require('../databases/mongo/opera
 const { findUserById } = require('../databases/mongo/operation/User');
 const { findOrders, addOrder,getOrdersCountByUser,getOrdersCountbyProducts } = 
 require('../databases/mongo/operation/order')
-//const Order = require('../databases/mongo/models/order');
 
 const placeOrder = async (req, res) => {
     try {
-        const user = await findUserById(req.body.userId)
+        const user = await findUserById(req.user._id)
 
         if (user) {
 
             const product = await findProductById(req.body.productId)
-            
             if (product) {
                 if (product.availableQuantity >= Number(req.body.quantity)) {
                     const newquantity = product.availableQuantity - req.body.quantity
                     const roduct = await updateProductById(req.body.productId, {"availableQuantity":newquantity})
                     const order = {
-                        "orderCreatedBy": req.body.userId,
+                        "orderCreatedBy": req.user._id,
                         "productId": req.body.productId,
                         "quanity": req.body.quantity,
                         "totalCost": (req.body.quantity * product.price)

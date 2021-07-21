@@ -5,7 +5,6 @@ const { addNewUser } = require('../databases/mongo/operation/User');
 const addUser = async (req, res) => {
 
     try {
-       
         const user = await addNewUser(req.body)
         if (user) {
             return res.status(201).json(responseFunction(true, "User added Successfully", user))
@@ -19,6 +18,8 @@ const addUser = async (req, res) => {
         return res.status(400).json(responseFunction(false, error.message, null));
     }
 
+
 }
+
 
 module.exports = addUser;

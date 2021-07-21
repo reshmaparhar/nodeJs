@@ -5,6 +5,7 @@ const ExtractJWT = passportJWT.ExtractJwt;
 const User = require('./databases/mongo/models/user')
 const LocalStrategy = require('passport-local').Strategy;
 const JWTStrategy   = passportJWT.Strategy;
+const {auth} = require('./config/config');
 
 passport.use(new LocalStrategy({
         usernameField: 'mobileNumber',
@@ -12,8 +13,9 @@ passport.use(new LocalStrategy({
     },
     async (mobileNumber, password, done) => {
         try {
+
           const user = await User.findOne({ mobileNumber });
-  
+            console.log(user)
           if (!user) {
             return done(null, false, { message: 'User not found' });
           }
@@ -33,7 +35,7 @@ passport.use(new LocalStrategy({
 
 passport.use(new JWTStrategy({
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-        secretOrKey   : 'your_jwt_secret'
+        secretOrKey   :  auth.secretKey
     },
     function (jwt_payload, done){
         User.findOne({id: jwt_payload.sub}, function(err, user) {

@@ -4,6 +4,7 @@
   "description": "Nodejs_Assignment Create the following APIs:",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "express-joi-validator": "^2.0.1",
     "joi": "^17.4.0",
