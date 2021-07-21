@@ -1,4 +1,6 @@
 const User = require('../models/user')
+const bcrypt = require("bcrypt");
+
 const findUserById = async(userId)=>{
     const user =  await User.findById(userId)
     return user;
@@ -7,9 +9,12 @@ const findUser =  async(userId)=>{
     const user =  await User.find(userId)
     return user;
 }
-const addNewUser = async(newProduct)=>{
+const addNewUser = async(newUser)=>{
     try{
-        const user = new User(newProduct);
+        const user = new User(newUser);
+        const salt = await bcrypt.genSalt(10);
+        // now we set user password to hashed password
+        user.password = await bcrypt.hash(user.password, salt);
         await user.save()
         return user;
     }
