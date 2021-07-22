@@ -15,7 +15,6 @@ passport.use(new LocalStrategy({
         try {
 
           const user = await User.findOne({ mobileNumber });
-            console.log(user)
           if (!user) {
             return done(null, false, { message: 'User not found' });
           }

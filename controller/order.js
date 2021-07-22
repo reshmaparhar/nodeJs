@@ -48,10 +48,10 @@ const getOrder = async (req, res) => {
         var limit = Number(req.query.limit);
         var skip = (Number(req.query.page) - 1) * Number(limit);
 
-        const user = await findUserById(req.params.userId);
+        const user = await findUserById(req.user._id);
 
         if (user) {
-            const orders = await findOrders({ 'orderCreatedBy': req.params.userId },limit,skip)
+            const orders = await findOrders({ 'orderCreatedBy': req.user._id },limit,skip)
             return res.json(responseFunction(true, `Details fetched successfully`, orders));
         }
         else {

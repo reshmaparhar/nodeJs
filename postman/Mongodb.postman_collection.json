@@ -37,41 +37,13 @@
 			"response": []
 		},
 		{
-			"name": "addProduct",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"_id\":22,\n    \"name\": \"Product 22\",\n    \"price\": 15,\n    \"availableQuantity\": 195,\n    \"manufacturer\": \"manufacturer 4\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:10000/api/product",
-					"host": [
-						"localhost"
-					],
-					"port": "10000",
-					"path": [
-						"api",
-						"product"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateProduct",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n    \"name\":\"Product - 22\"\n}",
+					"raw": "{\n\n    \"name\":\"Product - 2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,14 +51,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:10000/api/22",
+					"raw": "localhost:10000/api/2",
 					"host": [
 						"localhost"
 					],
 					"port": "10000",
 					"path": [
 						"api",
-						"22"
+						"2"
 					]
 				}
 			},
@@ -99,7 +71,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \n    \"mobileNumber\":\"3980892926\",\n    \"password\":\"reshmaparhar\"\n    \n}",
+					"raw": "{\n    \n    \"mobileNumber\":\"7133339992\",\n    \"password\":\"reshmaparhar\"\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -126,14 +98,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:10000/api/22",
+					"raw": "localhost:10000/api/2",
 					"host": [
 						"localhost"
 					],
 					"port": "10000",
 					"path": [
 						"api",
-						"22"
+						"2"
 					]
 				}
 			},
@@ -141,53 +113,39 @@
 		},
 		{
 			"name": "getProductById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
 				"url": {
-					"raw": "localhost:10000/api/1",
+					"raw": "localhost:10000/api/7",
 					"host": [
 						"localhost"
 					],
 					"port": "10000",
 					"path": [
 						"api",
-						"1"
+						"7"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "placeOrder",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\n\n{\n    \"userId\":\"60f01ac21dca1cec9fe5cb07\",\n    \"productId\":34,\n    \"quantity\":10\n\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:10000/order/",
-					"host": [
-						"localhost"
-					],
-					"port": "10000",
-					"path": [
-						"order",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOrdersCountByuser",
+			"name": "getOrdersCountByUserId",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -216,7 +174,7 @@
 			"response": []
 		},
 		{
-			"name": "getOrdersCountbyProduct",
+			"name": "getOrdersCountbyProductId",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -245,35 +203,6 @@
 			"response": []
 		},
 		{
-			"name": "getOrder",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:10000/order/60f01ac21dca1cec9fe5cb07?limit=3&page=1",
-					"host": [
-						"localhost"
-					],
-					"port": "10000",
-					"path": [
-						"order",
-						"60f01ac21dca1cec9fe5cb07"
-					],
-					"query": [
-						{
-							"key": "limit",
-							"value": "3"
-						},
-						{
-							"key": "page",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "addProductWithImage",
 			"request": {
 				"method": "POST",
@@ -284,11 +213,11 @@
 						{
 							"key": "myFile",
 							"type": "file",
-							"src": "/home/reshma/Desktop/mango.jpeg"
+							"src": "/home/reshma/Desktop/NodeMongo/images/imagesForUpload/mango.jpeg"
 						},
 						{
 							"key": "_id",
-							"value": "66",
+							"value": "3",
 							"type": "text"
 						},
 						{
@@ -386,7 +315,7 @@
 			"response": []
 		},
 		{
-			"name": "buyproduct",
+			"name": "buyProduct",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -421,6 +350,52 @@
 					"path": [
 						"user",
 						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserOrdersByToken",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY3ZDcwYjdjMmI0NDVkMjJlMDI2NWQiLCJpYXQiOjE2MjY4NTgzMjl9.rE143ZB71mJ7WoA1F_T84aSoDFrMcy5iZmAUUIbFcNk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:10000/user/orders?limit=3&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "10000",
+					"path": [
+						"user",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
 					]
 				}
 			},
