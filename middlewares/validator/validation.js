@@ -1,7 +1,7 @@
 const responseFunction = require("../../helpers/response");
 
 const validation = (schema)=>{
-    return(req, res, next) => { 
+    function validate(req, res, next) { 
         const {error} = schema.validate(req);
         if(error){
             return res.json(responseFunction(false,error.message,null))
@@ -10,6 +10,7 @@ const validation = (schema)=>{
             next();
         }
     }
+    return validate
 }
 
 module.exports = validation;
