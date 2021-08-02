@@ -65,11 +65,11 @@ router.route('/getProduct').get(getProduct);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
- *               id:
+ *               _id:
  *                 type: integer
  *                 description: The product's ID.
  *                 example: 0
