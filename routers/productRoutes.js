@@ -93,44 +93,46 @@ router.route('/getProduct').get(getProduct);
  *                  name: myFile
  *                  type: file
  *                  description: The file to upload.
- *               
  *     responses:
  *       200:
- *         description: Display Which product is added.
+ *         description: Newly Added Product.
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
  *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: integer
- *                         description: The product's ID.
- *                         example: 0
- *                       name:
- *                         type: string
- *                         description: The product's name.
- *                         example: Product -1     
- *                       price:
- *                         type: integer
- *                         description: The product's price.
- *                         example: 100
- *                       availableQuantity:
- *                         type: integer
- *                         description: The product's available Quantity.
- *                         example: 95
- *                       manufacturer:
- *                         type: string
- *                         description: The product's manufacturer's name.
- *                         example: manufacturer 1
- *                       image:
- *                         type: string
- *                         description: The Image of Product.
- *                         example: ../../Images/mango.jpeg
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: integer
+ *                       description: The Product ID.
+ *                       example: 1
+ *                     name:
+ *                       type: string
+ *                       description: The product's name.
+ *                       example: Product -1 
+ *                     price:
+ *                        type: integer
+ *                        description: The product's price.
+ *                        example: 100
+ *                     availableQuantity:
+ *                        type: integer
+ *                        description: The product's available Quantity.
+ *                        example: 95
+ *                     manufacturer:
+ *                        type: string
+ *                        description: The product's manufacturer's name.
+ *                        example: manufacturer 1
+ *                     image:
+ *                        type: string
+ *                        description: The Image of Product.
+ *                        example: ../../Images/mango.jpeg
+ *                                      
+ *     
+ *                       
+ *   
+ *               
 */
 
 router.route('/product').post(uploadFunction,validation(schemas.addNewProduct),addProduct)

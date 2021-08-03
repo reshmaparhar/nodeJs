@@ -29,27 +29,26 @@ const swaggerDefinition = {
             description: 'Development server',
           },
         ],
+        components: {
+          securitySchemes: {
+            bearerAuth: {
+              type: 'http',
+              scheme: 'bearer',
+              bearerFormat: 'JWT',
+            }
+          }
+        },
+        security: [{
+          bearerAuth: []
+        }]
       
 };
 
 const options = {
   swaggerDefinition,
   // Paths to files containing OpenAPI definitions
-  components: {
-    securitySchemes: {
-      jwt: {
-        type: "http",
-        scheme: "bearer",
-        in: "header",
-        bearerFormat: "JWT"
-      },
-    }
-  }
-  ,
-  security: [{
-    jwt: []
-  }],
-  apis: ['./routers/*.js'],
+  
+  apis: ['./routers/*.js','./controller/auth.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

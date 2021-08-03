@@ -71,7 +71,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \n    \"mobileNumber\":\"7133339992\",\n    \"password\":\"reshmaparhar\"\n    \n}",
+					"raw": "{\n    \n    \"mobileNumber\":\"7733339992\",\n    \"password\":\"reshmaparhar\"\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,14 +98,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:10000/api/2",
+					"raw": "localhost:10000/api/7",
 					"host": [
 						"localhost"
 					],
 					"port": "10000",
 					"path": [
 						"api",
-						"2"
+						"7"
 					]
 				}
 			},
@@ -131,14 +131,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:10000/api/7",
+					"raw": "localhost:10000/api/1",
 					"host": [
 						"localhost"
 					],
 					"port": "10000",
 					"path": [
 						"api",
-						"7"
+						"1"
 					]
 				}
 			},
@@ -217,7 +217,7 @@
 						},
 						{
 							"key": "_id",
-							"value": "3",
+							"value": "7",
 							"type": "text"
 						},
 						{
@@ -261,6 +261,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mobileNumber\": \"7233339992\",\n    \"password\":\"reshmaparhar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:10000/auth/login?mobileNumber=7233339992&password=reshmaparhar",
 					"host": [
@@ -316,9 +325,6 @@
 		},
 		{
 			"name": "buyProduct",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -330,11 +336,11 @@
 						}
 					]
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \n    \"productId\":4,\n    \"quantity\":1\n\n}\n",
+					"raw": "{\n    \n    \"productId\":5,\n    \"quantity\":1\n\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
