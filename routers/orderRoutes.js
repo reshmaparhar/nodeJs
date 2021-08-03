@@ -27,7 +27,7 @@ const {getOrdersCountForEachUser,getOrdersCountForEachProduct} = require('../con
  *       
  *     responses:
  *       200:
- *         description: Order's count by productId.
+ *         description: Order's count by userId.
  *         content:
  *           application/json:
  *              schema:
